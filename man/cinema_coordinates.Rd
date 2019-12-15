@@ -14,7 +14,6 @@
   \item{Telephone}{Telephone of the cinema when available}
   \item{Latitude}{Latitude of the cinema}
   \item{Longitude}{Longitude of the cinema}
-  ...
 }}
 \source{
 Own creation using info of cinemas in SWitzerland from

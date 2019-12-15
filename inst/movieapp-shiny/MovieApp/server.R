@@ -113,7 +113,7 @@ server <- function(input, output, session) {
     ##Map main Page 1
     # map that opens by default
     output$mymap <- renderLeaflet({
-        plot_city(allmovies_df)
+        plot_city(filtered_df())
     })
 
 

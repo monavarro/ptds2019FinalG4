@@ -10,12 +10,11 @@
 #' @return A \code {plot} with the map of the world and all the points
 #' available in the data base as markers.
 #' @author Ines Guardans, Guillaume Lakah, Monica Navarro & Mathieu Schnyder
-#' @import leaflet
 #' @export
 #' @examples
 #' plot_city(x)
 plot_city <- function(x){
-leaflet() %>%
+leaflet::leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(lng = x$Longitude, lat = x$Latitude, popup = paste(paste0("Cinema: ", x$cinema), "<br/>",
                                                                 paste0("Address: ", x$Address), "<br/>",
@@ -40,13 +39,12 @@ leaflet() %>%
 #' @return The updated \code {plot} of function \code{plot_city} with the
 #' markers specified by the filters in a shiny app.
 #' @author Ines Guardans, Guillaume Lakah, Monica Navarro & Mathieu Schnyder
-#' @import leaflet
 #' @export
 #' @examples
 #' adding_city(mapID,x)
 
 adding_city <- function(mapID, x){
-  leafletProxy(mapID) %>%
+  leaflet::leafletProxy(mapID) %>%
     clearMarkers() %>%
     addMarkers(lng = x$Longitude, lat = x$Latitude, popup = paste(paste0("Cinema: ", x$cinema), "<br/>",
                                                                   paste0("Address: ", x$Address), "<br/>",

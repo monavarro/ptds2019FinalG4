@@ -243,6 +243,8 @@ if(movie_scraping){
 
   #Cleaning movies data set and giving corresponding format
 
+  allmovies_df <- allmovies_df[!(allmovies_df$movie_title=="Posted "),]
+
   allmovies_df$town <- allmovies_df$town %>%
                               gsub(pattern = "ü", replacement = "u")
 

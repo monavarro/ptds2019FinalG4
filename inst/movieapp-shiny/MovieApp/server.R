@@ -1,5 +1,5 @@
-devtools::install_github("nik01010/dashboardthemes")
-devtools::install_github("monavarro/ptds2019FinalG4")
+# devtools::install_github("nik01010/dashboardthemes", force = T)
+# devtools::install_github("monavarro/ptds2019FinalG4", force = T)
 library(ptds2019FinalG4)
 library(shiny)
 library(leaflet)

@@ -1,0 +1,12 @@
+name: MovieApp
+title: MovieApp
+username:
+account: ptds2019projectgroup4
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1601848
+bundleId: 2670143
+url: https://ptds2019projectgroup4.shinyapps.io/MovieApp/
+when: 1576448272.96802
+asMultiple: FALSE
+asStatic: FALSE

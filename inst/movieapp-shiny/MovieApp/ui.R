@@ -9,8 +9,6 @@
 #runApp("movie_app", display.mode = "showcase")
 
 #library(devtools)
-devtools::install_github("nik01010/dashboardthemes")
-devtools::install_github("monavarro/ptds2019FinalG4")
 library(ptds2019FinalG4)
 library(shiny)
 library(leaflet)

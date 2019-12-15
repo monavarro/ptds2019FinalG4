@@ -11,7 +11,7 @@ plot_city(x)
 cinema, Address, Telephone and Webpage related to several movies.}
 }
 \value{
-A \code {plot} with the map of the world and all the points
+A plot with the map of the world and all the points
 available in the data base as markers.
 }
 \description{

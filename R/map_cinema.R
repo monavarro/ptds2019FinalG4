@@ -7,7 +7,7 @@
 #' regarding the information of the cinema where the movie is being displayed.
 #' @param x A \code{database} with at least the colums of Latitude, Longitude,
 #' cinema, Address, Telephone and Webpage related to several movies.
-#' @return A \code {plot} with the map of the world and all the points
+#' @return A plot with the map of the world and all the points
 #' available in the data base as markers.
 #' @author Ines Guardans, Guillaume Lakah, Monica Navarro & Mathieu Schnyder
 #' @export
@@ -36,7 +36,7 @@ leaflet::leaflet() %>%
 #' \code{plot_city} that has to be updated.
 #' @param x A \code{database} with at least the colums of Latitude, Longitude,
 #' cinema, Address, Telephone and Webpage related to several movies.
-#' @return The updated \code {plot} of function \code{plot_city} with the
+#' @return The updated plot of function \code{plot_city} with the
 #' markers specified by the filters in a shiny app.
 #' @author Ines Guardans, Guillaume Lakah, Monica Navarro & Mathieu Schnyder
 #' @export

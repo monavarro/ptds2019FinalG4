@@ -14,7 +14,7 @@ cinema, Address, Telephone and Webpage related to several movies.}
 \code{plot_city} that has to be updated.}
 }
 \value{
-The updated \code {plot} of function \code{plot_city} with the
+The updated plot of function \code{plot_city} with the
 markers specified by the filters in a shiny app.
 }
 \description{

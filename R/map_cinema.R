@@ -20,7 +20,7 @@ leaflet::leaflet() %>%
                                                                 paste0("Address: ", x$Address), "<br/>",
                                                                 paste0("Telephone: ", x$Telephone), "<br/>",
                                                                 paste0(  "Webpage: ",
-                                                                         "<a href=\"http://", x$Webpage , "\target=\"_blank\" rel=\"noopener noreferrer\">",
+                                                                         "<a href=\"http://", x$Webpage , "\target=\"_blank\">",
                                                                          x$Webpage, "</a>")))
 
 
@@ -50,7 +50,7 @@ adding_city <- function(mapID, x){
                                                                   paste0("Address: ", x$Address), "<br/>",
                                                                   paste0("Telephone: ", x$Telephone), "<br/>",
                                                                   paste0(  "Webpage: ",
-                                                                           "<a href=\"http://", x$Webpage , "\target=\"_blank\" rel=\"noopener noreferrer\">",
+                                                                           "<a href=\"http://", x$Webpage , "\target=\"_blank\">",
                                                                            x$Webpage, "</a>")))
 
 }

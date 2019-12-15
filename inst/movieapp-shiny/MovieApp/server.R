@@ -1,3 +1,5 @@
+devtools::install_github("nik01010/dashboardthemes")
+devtools::install_github("monavarro/ptds2019FinalG4")
 library(ptds2019FinalG4)
 library(shiny)
 library(leaflet)
@@ -9,7 +11,6 @@ library(rapportools)
 library(stringr)
 library(magrittr)
 library(writexl)
-
 library(shiny)
 library(leaflet)
 require(shinyWidgets)

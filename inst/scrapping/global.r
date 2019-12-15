@@ -6,7 +6,6 @@ library(rapportools)
 library(stringr)
 library(magrittr)
 library(writexl)
-
 library(shiny)
 library(leaflet)
 require(shinyWidgets)
@@ -22,6 +21,7 @@ library(chron)
 library(htmlTable)
 library(memisc)
 library(lubridate)
+library(ptds2019FinalG4)
 
 
 url_scraping <- F
@@ -89,7 +89,7 @@ if(genre_scraping){
 
   genrelist <- unique(unlist(genrelist))
   genrelist <- as.data.frame(genrelist)
-  save(genrelist, file = "./data/genrelist.Rdata" )
+  save(genrelist, file = "./data/genrelist.rda" )
 
 }
 
@@ -236,7 +236,6 @@ if(movie_scraping){
 
   #Adding coordinates of cinemas to the data set
 
-  load("./data/cinema_coordinates.Rdata")
   allmovies_df <- left_join(allmovies_df,
                             cinema_coordinates,
                             by = c("cinema", "town"),
@@ -258,7 +257,7 @@ if(movie_scraping){
     format("%d/%m/%y")
 
   #Saving in system file
-  save(allmovies_df, file = "./data/allmovies_df.Rdata" )
+  save(allmovies_df, file = "./data/allmovies_df.rda" )
 
 }
 

@@ -1,3 +1,4 @@
+
 #' Information of 252 cinemas in Switzerland.
 #'
 #' A dataset containing the coordinates and other attributes of 252 cinemas
@@ -46,6 +47,7 @@
 #' }
 #' @source Scrapped from \url{http://www.cineman.ch/}
 "allmovies_df"
+
 
 #' Information of all genres of movies for 3 days in SWitzerland.
 #'

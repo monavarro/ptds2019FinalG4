@@ -89,7 +89,7 @@ if(genre_scraping){
 
   genrelist <- unique(unlist(genrelist))
   genrelist <- as.data.frame(genrelist)
-
+  save(genrelist, file = "./data/genrelist.Rdata" )
 
 }
 
@@ -258,7 +258,7 @@ if(movie_scraping){
     format("%d/%m/%y")
 
   #Saving in system file
-  save(allmovies_df, genrelist, file = "./R/sysdata.rda" )
+  save(allmovies_df, file = "./data/allmovies_df.Rdata" )
 
 }
 

@@ -1,3 +1,30 @@
+library(ptds2019FinalG4)
+library(shiny)
+library(leaflet)
+library(readxl)
+library(dplyr)
+library(Hmisc)
+library(rvest)
+library(rapportools)
+library(stringr)
+library(magrittr)
+library(writexl)
+
+library(shiny)
+library(leaflet)
+require(shinyWidgets)
+require(dashboardthemes)
+require(shinydashboard)
+library(DT)
+library(htmltools)
+library(knitr)
+library(tableHTML)
+library(mapsapi)
+library(xml2)
+library(chron)
+library(htmlTable)
+library(memisc)
+library(lubridate)
 
 # Define server logic to summarize and view selected dataset ----
 server <- function(input, output, session) {
@@ -28,30 +55,30 @@ server <- function(input, output, session) {
 
         # Title
         if(!is.empty(input$title)){
-            chosen_movie <- allmovies_df %>%
+            chosen_movie <- ptds2019FinalG4:::allmovies_df %>%
                 filter(movie_title %in% input$title)}
         else {
-            chosen_movie <- allmovies_df
+            chosen_movie <- ptds2019FinalG4:::allmovies_df
         }
 
         # Location
         if (!is.empty(input$location)){
-            chosen_location <- allmovies_df %>%
+            chosen_location <- ptds2019FinalG4:::allmovies_df %>%
                 filter(town %in% input$location)
         }
         else {
-            chosen_location <- allmovies_df
+            chosen_location <- ptds2019FinalG4:::allmovies_df
         }
 
         # Filter location and movies according to the chosen values
-        choices_df <- allmovies_df %>%
+        choices_df <- ptds2019FinalG4:::allmovies_df %>%
             filter(movie_title %in% chosen_movie$movie_title,
                    town %in% chosen_location$town,
-                   hour(as.chron(allmovies_df$viewing_times, "%H:%M")) >= input$availability[1],
-                   hour(as.chron(allmovies_df$viewing_times, "%H:%M")) <= input$availability[2],
-                   as.numeric(allmovies_df$movie_rating) >= input$ratings[1],
-                   as.numeric(allmovies_df$movie_rating) <= input$ratings[2],
-                   sub("\\/.*", "", allmovies_df$movie_date) == sub("\\/.*", "", input$date)
+                   hour(as.chron(ptds2019FinalG4:::allmovies_df$viewing_times, "%H:%M")) >= input$availability[1],
+                   hour(as.chron(ptds2019FinalG4:::allmovies_df$viewing_times, "%H:%M")) <= input$availability[2],
+                   as.numeric(ptds2019FinalG4:::allmovies_df$movie_rating) >= input$ratings[1],
+                   as.numeric(ptds2019FinalG4:::allmovies_df$movie_rating) <= input$ratings[2],
+                   sub("\\/.*", "", ptds2019FinalG4:::allmovies_df$movie_date) == sub("\\/.*", "", input$date)
 
             )
 
@@ -85,7 +112,7 @@ server <- function(input, output, session) {
     ##Map main Page 1
     # map that opens by default
     output$mymap <- renderLeaflet({
-        plot_city(allmovies_df)
+        plot_city(ptds2019FinalG4:::allmovies_df)
     })
 
 

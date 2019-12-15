@@ -22,7 +22,6 @@ library(chron)
 library(htmlTable)
 library(memisc)
 library(lubridate)
-library(ptds2019FinalG4)
 
 
 url_scraping <- F

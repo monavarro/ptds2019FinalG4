@@ -10,8 +10,32 @@
 
 #library(devtools)
 #install_github("nik01010/dashboardthemes")
-
-
+library(ptds2019FinalG4)
+library(shiny)
+library(leaflet)
+library(readxl)
+library(dplyr)
+library(Hmisc)
+library(rvest)
+library(rapportools)
+library(stringr)
+library(magrittr)
+library(writexl)
+library(shiny)
+library(leaflet)
+require(shinyWidgets)
+require(dashboardthemes)
+require(shinydashboard)
+library(DT)
+library(htmltools)
+library(knitr)
+library(tableHTML)
+library(mapsapi)
+library(xml2)
+library(chron)
+library(htmlTable)
+library(memisc)
+library(lubridate)
 
 ############# Define UI for application
 
@@ -90,16 +114,16 @@ sidebarMenu(id = "sidebar2",
                      # Sidebar panel for inputs ----
                      selectInput(inputId = "date",
                                  label = "Date:",
-                                 choices = sort(unique(allmovies_df$movie_date)),
-                                 selected = sort(unique(allmovies_df$movie_date))[1]),
+                                 choices = sort(unique(ptds2019FinalG4:::allmovies_df$movie_date)),
+                                 selected = sort(unique(ptds2019FinalG4:::allmovies_df$movie_date))[1]),
 
                      # Choice of title
                      multiInput(
                          inputId = "title",
                          label = "Movie title",
                          choices = NULL,
-                         choiceNames = sort(unique(allmovies_df$movie_title)),
-                         choiceValues = sort(unique(allmovies_df$movie_title)),
+                         choiceNames = sort(unique(ptds2019FinalG4:::allmovies_df$movie_title)),
+                         choiceValues = sort(unique(ptds2019FinalG4:::allmovies_df$movie_title)),
                          options = list(
                              enable_search = TRUE,
                              scrollX = FALSE,
@@ -113,8 +137,8 @@ sidebarMenu(id = "sidebar2",
                          inputId = "location",
                          label = "Locations",
                          choices = NULL,
-                         choiceNames = sort(unique(allmovies_df$town)),
-                         choiceValues = sort(unique(allmovies_df$town)),
+                         choiceNames = sort(unique(ptds2019FinalG4:::allmovies_df$town)),
+                         choiceValues = sort(unique(ptds2019FinalG4:::allmovies_df$town)),
                          options = list(
                              enable_search = TRUE,
                              non_selected_header = "Choose between:",
@@ -124,7 +148,7 @@ sidebarMenu(id = "sidebar2",
 
                      selectInput(inputId = "genre",
                                  label = "Genre:",
-                                 choices = c("All", sort(unique(genrelist$genrelist))),
+                                 choices = c("All", sort(unique(ptds2019FinalG4:::genrelist$genrelist))),
                                  selected = "All"),
 
 

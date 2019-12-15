@@ -2,3 +2,4 @@
 
 export(adding_city)
 export(plot_city)
+export(runMovieApp)

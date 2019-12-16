@@ -215,7 +215,7 @@ if(movie_scraping){
       rvest::html_attr('src')
 
     #movie_poster <- paste0("<img src=\"",movie_poster,"\" width=174px, length=240></img>") %>% as.data.frame()
-    movie_poster <- paste0("<img src=\"",movie_poster,"height=\"129\"> <width=\"92\"></img>") %>% as.data.frame()
+    movie_poster <- paste0("<img src=\"",movie_poster,"\" height=\"129\"> <width=\"92\"></img>") %>% as.data.frame()
 
     movie_poster <- movie_poster[rep(seq_len(nrow(movie_poster)), dplyr::count(movie_df)), ] %>%
       as.data.frame()

@@ -4,13 +4,13 @@ Title: The Movie App
 Version: 0.1.0
 Author: c(
           person("Ines", "Guardans", email = "ines.guardans@unil.ch", 
-          role = c("aut","cre",,
+          role = c("aut","cre"),
           person("Guillaume", "Lakah", email = "guillaume.lakah@unil.ch",
-          role = c("aut","cre",,
+          role = c("aut","cre"),
           person("Monica", "Navarro", email = "monica.navarrocalvo@unil.ch",
-          role = c("aut","cre",,
+          role = c("aut","cre"),
           person("Mathieu", "Schnyder", email= "mathieu.schnyder@unil.ch", 
-          role = c("aut","cre",,
+          role = c("aut","cre"),
 Maintainer: Monica Navarro <monica.navarrocalvo@unil.ch>
 Description: his package includes a shiny app that provides information on movies in Switzerland, 
     with a map presenting all the possible locations, which can be filtered by Movie Name,

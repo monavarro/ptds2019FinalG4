@@ -91,7 +91,7 @@ if(genre_scraping){
 if(movie_scraping){
   movieslist <- list()
   movie_dates <- list()
-  dates <- c(lubridate::today(), lubridate::today()+1, lubridate::today()+2, lubridate::today()+3, lubridate::today()+4, lubridate::today()+5)
+  dates <- c(lubridate::today()+1, lubridate::today()+2, lubridate::today()+3, lubridate::today()+4, lubridate::today()+5, lubridate::today() + 6)
   # Construct big dataframe
   for (i in 1:length(urls)){
     movie <- paste0("https://www.cineman.ch", urls[i])%>%

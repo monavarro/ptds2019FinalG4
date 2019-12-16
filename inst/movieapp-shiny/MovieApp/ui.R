@@ -133,7 +133,11 @@ sidebarMenu(id = "sidebar2",
                      verticalTabPanel(
 
                          sliderInput("ratings", label = "Movie Ratings:", #Time range when customer is available
-                                     min = 1, max = 5, step = 0.5, value=c(1, 5))
+                                     min = min(allmovies_df$movie_rating),
+                                     max = max(allmovies_df$movie_rating),
+                                     step = 0.5,
+                                     value=c(min(allmovies_df$movie_rating),
+                                             max(allmovies_df$movie_rating)))
                      )
             )),
 
@@ -152,6 +156,7 @@ sidebarMenu(id = "sidebar4",
             )
 )
 )
+
 # Body #############################
 #css <- "#location+div div a {color: black;}"
 body <- dashboardBody(width = 50, style = "border-style: solid; border-color: black",

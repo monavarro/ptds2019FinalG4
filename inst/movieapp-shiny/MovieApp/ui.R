@@ -41,54 +41,7 @@ library(lubridate)
 ##########Header
 header <- dashboardHeader(
 
-    title = "Movies Locator", titleWidth = 250, dropdownMenu(type = "messages",
-                                                             messageItem(
-                                                                 from = "Assistant",
-                                                                 message = "Welcome to the Movies Locator App."),
-                                                             messageItem(
-                                                                 from = "New User",
-                                                                 message = "Open sidebar & select preferences",
-                                                                 icon = icon("question"),
-                                                                 time = paste(as.Date(Sys.Date(), format = "%dd-%mm-%yyyy"))
-                                                             ),
-                                                             messageItem(
-                                                                 from = "Support",
-                                                                 message = "Send us an email!",
-                                                                 icon = icon("life-ring"),
-                                                                 time = paste(as.Date(Sys.Date(), format = "%dd-%mm-%yyyy"))
-                                                             )
-    ),
-    dropdownMenuOutput("messageMenu"),
-    dropdownMenu(type = "notifications",
-                 notificationItem(
-                     text = "XXXXXX new movies this week",
-                     icon("users")
-                 ),
-                 notificationItem(
-                     text = "Blablabla",
-                     icon("truck"),
-                     status = "success"
-                 ),
-                 notificationItem(
-                     text = "Overall movie rating XXXX %",
-                     icon = icon("exclamation-triangle"),
-                     status = "warning"
-                 )
-    ),
-    dropdownMenu(type = "tasks", badgeStatus = "success",
-                 taskItem(value = 90, color = "green",
-                          "Documentation"
-                 ),
-                 taskItem(value = 17, color = "aqua",
-                          "Project X"
-                 ),
-                 taskItem(value = 75, color = "yellow",
-                          "Server deployment"
-                 ),
-                 taskItem(value = 80, color = "red",
-                          "Overall project"
-                 )
-    )
+    title = "Movies Locator", titleWidth = 280
 )
 
 ##########Side Bar
@@ -99,10 +52,10 @@ sidebar <- dashboardSidebar(shinyDashboardThemes(
 width = 290,
 
 sidebarMenu(id = "sidebar1",
-            menuItem("The Movie App!", tabName = "menu_1", icon = icon("film"),
-                     collapsible =
-                         menuSubItem("Welcome to the movie app!", tabName = "sub_1"),
-                     menuSubItem('Welcome to the movie app!', tabName = 'sub_2')
+            menuItem("The Movie App!", tabName = "menu_1", icon = icon("film")#,
+                     # collapsible =
+                     #     menuSubItem("Welcome to the movie app!", tabName = "sub_1"),
+                     # menuSubItem('Welcome to the movie app!', tabName = 'sub_2')
             )
 ),
 sidebarMenu(id = "sidebar2",
@@ -144,7 +97,6 @@ sidebarMenu(id = "sidebar2",
                              selected_header = "You have selected:"
                          )),
 
-
                      selectInput(inputId = "genre",
                                  label = "Genre:",
                                  choices = c("All", sort(unique(genrelist$genrelist))),
@@ -164,23 +116,21 @@ sidebarMenu(id = "sidebar2",
 
                          sliderInput("ratings", label = "Movie Ratings:", #Time range when customer is available
                                      min = 1, max = 5, step = 0.5, value=c(1, 5))
-
                      )
-
-
             )),
+
 sidebarMenu(id = "sidebar3",
-            menuItem("All Movies", tabName = "menu_3", icon = icon("film"),
-                     collapsible =
-                         menuSubItem("See Movies Available", tabName = "sub_5"),
-                     menuSubItem('See Movies Available', tabName = 'sub_6')
+            menuItem("All Movies", tabName = "menu_3", icon = icon("film")#,
+                     # collapsible =
+                     #     menuSubItem("See Movies Available", tabName = "sub_5"),
+                     # menuSubItem('See Movies Available', tabName = 'sub_6')
             )
 ),
 sidebarMenu(id = "sidebar4",
-            menuItem("Contact us", tabName = "menu_4", icon = icon("phone"),
-                     collapsible =
-                         menuSubItem("Contact us", tabName = "sub_7"),
-                     menuSubItem('Contact us', tabName = 'sub_8')
+            menuItem("Contact us", tabName = "menu_4", icon = icon("phone")#,
+                     # collapsible =
+                     #     menuSubItem("Contact us", tabName = "sub_7"),
+                     # menuSubItem('Contact us', tabName = 'sub_8')
             )
 )
 )
@@ -189,7 +139,7 @@ sidebarMenu(id = "sidebar4",
 body <- dashboardBody(width = 50, style = "border-style: solid; border-color: black",
                       tabItems(
                           #Page 1
-                          tabItem(tabName = 'sub_2',
+                          tabItem(tabName = 'menu_1',
                                   fluidPage(
                                       h1('Welcome to The Movie App!'),
                                       br(),
@@ -210,26 +160,26 @@ body <- dashboardBody(width = 50, style = "border-style: solid; border-color: bl
                                       br(),
                                       tags$iframe(width="800", height="450", src="https://www.youtube.com/embed/T1-k7VYwsHg", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen=NA),
                                       br(),
-                                      htmlOutput("picture", height = "350px", width = "50%")
+                                      uiOutput("img1")
 
                                   )),
                           tabItem(tabName = 'sub_4',
                                   fluidPage(
                                       leafletOutput("mymap"),
                                       p(),#to print the map
-                                      dataTableOutput('table'),
-                                      h2("List of Movies") # taille du titre
+                                      h2("List of Movies"), # taille du titre
+                                      div(dataTableOutput('table'), style = "font-size:125%; font-weight:bold")
+
 
                                   )),
 
-                          tabItem(tabName = 'sub_6',
+                          tabItem(tabName = 'menu_3',
                                   fluidPage(
                                       h2('All Movies'),
-                                      dataTableOutput('full_table')
-
+                                      div(dataTableOutput('full_table'), style = "font-size:125%; font-weight:bold")
                                   )),
 
-                          tabItem(tabName = 'sub_8',
+                          tabItem(tabName = 'menu_4',
                                   fluidPage(
                                       h1('Contact Page'),
                                       br(),

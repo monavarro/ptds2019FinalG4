@@ -22,6 +22,7 @@ library(htmlTable)
 library(memisc)
 library(lubridate)
 library(ptds2019FinalG4)
+library(knitr)
 
 
 url_scraping <- F

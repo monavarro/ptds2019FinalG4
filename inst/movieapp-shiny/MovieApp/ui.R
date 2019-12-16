@@ -66,8 +66,8 @@ sidebarMenu(id = "sidebar2",
                      # Sidebar panel for inputs ----
                      selectInput(inputId = "date",
                                  label = "Date:",
-                                 choices = sort(unique(allmovies_df$movie_date)),
-                                 selected = sort(unique(allmovies_df$movie_date))[1]),
+                                 choices = c("All", paste(sort(unique(allmovies_df$movie_date)),sep = ",")),
+                                 selected = "All"),
 
                      # Choice of title
                      multiInput(
@@ -117,7 +117,7 @@ sidebarMenu(id = "sidebar2",
 
                      selectInput(inputId = "genre",
                                  label = "Genre:",
-                                 choices = c("All", sort(unique(genrelist$genrelist))),
+                                 choices = c("All", paste(sort(genrelist$genrelist),sep = ",")),
                                  selected = "All"),
 
 

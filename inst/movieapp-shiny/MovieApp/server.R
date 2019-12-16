@@ -75,14 +75,19 @@ server <- function(input, output, session) {
                    hour(as.chron(allmovies_df$viewing_times, "%H:%M")) >= input$availability[1],
                    hour(as.chron(allmovies_df$viewing_times, "%H:%M")) <= input$availability[2],
                    as.numeric(allmovies_df$movie_rating) >= input$ratings[1],
-                   as.numeric(allmovies_df$movie_rating) <= input$ratings[2],
-                   sub("\\/.*", "", allmovies_df$movie_date) == sub("\\/.*", "", input$date)
+                   as.numeric(allmovies_df$movie_rating) <= input$ratings[2]
+
             )
 
         # Genre
         if(input$genre != "All"){
             choices_df <- choices_df %>%
                 filter(UQ(as.symbol(input$genre)) == 1)
+        }
+
+        if(input$date != "All"){
+          choices_df <- choices_df %>%
+            filter(sub("\\/.*", "", allmovies_df$movie_date) == sub("\\/.*", "", input$date))
         }
 
         return(choices_df)

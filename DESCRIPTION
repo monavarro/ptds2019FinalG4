@@ -10,9 +10,9 @@ Author: c(
           person("Monica", "Navarro", email = "monica.navarrocalvo@unil.ch",
           role = c("aut","cre"),
           person("Mathieu", "Schnyder", email= "mathieu.schnyder@unil.ch", 
-          role = c("aut","cre"),
+          role = c("aut","cre"))
 Maintainer: Monica Navarro <monica.navarrocalvo@unil.ch>
-Description: his package includes a shiny app that provides information on movies in Switzerland, 
+Description: This package includes a shiny app that provides information on movies in Switzerland, 
     with a map presenting all the possible locations, which can be filtered by Movie Name,
     Town, Movie Genre, Viewing Times and Rating. Functions like 'plot_city', which gives an 
     initial map of the movies in a shiny app, and 'adding_city', that provides the map given 

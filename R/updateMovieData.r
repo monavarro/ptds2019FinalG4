@@ -91,7 +91,7 @@ if(genre_scraping){
 if(movie_scraping){
   movieslist <- list()
   movie_dates <- list()
-  dates <- c(lubridate::today()+1, lubridate::today()+2, lubridate::today()+3, lubridate::today()+4, lubridate::today()+5, lubridate::today()+6)
+  dates <- c(lubridate::today(), lubridate::today()+1, lubridate::today()+2, lubridate::today()+3, lubridate::today()+4, lubridate::today()+5)
   # Construct big dataframe
   for (i in 1:length(urls)){
     movie <- paste0("https://www.cineman.ch", urls[i])%>%
@@ -215,7 +215,7 @@ if(movie_scraping){
       rvest::html_attr('src')
 
     #movie_poster <- paste0("<img src=\"",movie_poster,"\" width=174px, length=240></img>") %>% as.data.frame()
-    movie_poster <- paste0("<img src=\"",movie_poster,"height=\"129\"> <width=\"92\"></img>") %>% as.data.frame()
+    movie_poster <- paste0("<img src=\"",movie_poster,"\" height=\"129\"> <width=\"92\"></img>") %>% as.data.frame()
 
     movie_poster <- movie_poster[rep(seq_len(nrow(movie_poster)), dplyr::count(movie_df)), ] %>%
       as.data.frame()

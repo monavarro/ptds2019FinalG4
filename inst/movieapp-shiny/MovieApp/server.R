@@ -34,7 +34,7 @@ server <- function(input, output, session) {
 
     ###### <----- Main Page
     output$img1 <- renderUI({
-        tags$img(src = "https://cinerive.com/sites/default/files/styles/full/public/eio_2012-12-11_cosmo_salle1.jpg?itok=_SHnxBbs", height="40%", width="60%") })
+        tags$img(src = "https://cinerive.com/sites/default/files/styles/full/public/eio_2012-12-11_cosmo_salle1.jpg?itok=_SHnxBbs", height="10%", width="35%") })
 
 
 
@@ -58,10 +58,20 @@ server <- function(input, output, session) {
             chosen_location <- allmovies_df
         }
 
+        # Cinema
+        if (!is.empty(input$cinema)){
+            chosen_cinema <- allmovies_df %>%
+                filter(cinema %in% input$cinema)
+        }
+        else {
+            chosen_cinema <- allmovies_df
+        }
+
         # Filter location and movies according to the chosen values
         choices_df <- allmovies_df %>%
             filter(movie_title %in% chosen_movie$movie_title,
                    town %in% chosen_location$town,
+                   cinema %in% chosen_cinema$cinema,
                    hour(as.chron(allmovies_df$viewing_times, "%H:%M")) >= input$availability[1],
                    hour(as.chron(allmovies_df$viewing_times, "%H:%M")) <= input$availability[2],
                    as.numeric(allmovies_df$movie_rating) >= input$ratings[1],
@@ -103,6 +113,9 @@ server <- function(input, output, session) {
     ##### Table page 2
     output$table <- renderDataTable(filtered_df() %>%
                                         dplyr::select(movie_poster, movie_title, cinema, movie_date, viewing_times, movie_rating) %>%
+                                        dplyr::group_by(movie_poster, movie_title, cinema, movie_date, movie_rating) %>%
+                                        summarise(viewing_times = paste(viewing_times, collapse = ";  ")) %>%
+                                        dplyr::select(movie_poster, movie_title, cinema, viewing_times, movie_date, movie_rating) %>%
                                         dplyr::rename("Movie Poster" = movie_poster,
                                                       "Movie Title" = movie_title,
                                                       "Movie Date" = movie_date,
@@ -117,6 +130,9 @@ server <- function(input, output, session) {
     ###### <----- Page 3 Table page 3
     output$full_table <- renderDataTable(filtered_df() %>%
                                              dplyr::select(movie_poster, movie_title, cinema, movie_date, viewing_times, movie_rating) %>%
+                                             dplyr::group_by(movie_poster, movie_title, cinema, movie_date, movie_rating) %>%
+                                             summarise(viewing_times = paste(viewing_times, collapse = ", ")) %>%
+                                             dplyr::select(movie_poster, movie_title, cinema, viewing_times, movie_date, movie_rating) %>%
                                              dplyr::rename("Movie Poster" = movie_poster,
                                                            "Movie Title" = movie_title,
                                                            "Movie Date" = movie_date,

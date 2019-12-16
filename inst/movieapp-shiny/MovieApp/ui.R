@@ -41,7 +41,7 @@ library(lubridate)
 ##########Header
 header <- dashboardHeader(
 
-    title = "Movies Locator", titleWidth = 280
+    title = "Movies Locator", titleWidth = 330
 )
 
 ##########Side Bar
@@ -49,7 +49,7 @@ sidebar <- dashboardSidebar(shinyDashboardThemes(
     theme = "grey_light"
 ),
 
-width = 290,
+width = 360,
 
 sidebarMenu(id = "sidebar1",
             menuItem("The Movie App!", tabName = "menu_1", icon = icon("film")#,
@@ -81,7 +81,23 @@ sidebarMenu(id = "sidebar2",
                              scrollX = FALSE,
                              non_selected_header = "Choose between:",
                              selected_header = "You have selected:"
-                         )),
+                         ),
+                         width = "110%"),
+
+
+                     #Select box for Cinema
+                     multiInput(
+                         inputId = "cinema",
+                         label = "Cinema Names",
+                         choices = NULL,
+                         choiceNames = sort(unique(allmovies_df$cinema)),
+                         choiceValues = sort(unique(allmovies_df$cinema)),
+                         options = list(
+                             enable_search = TRUE,
+                             non_selected_header = "Choose between:",
+                             selected_header = "You have selected:"
+                         ),
+                         width = "110%"),
 
 
                      #Select box for Location and Genre
@@ -95,7 +111,9 @@ sidebarMenu(id = "sidebar2",
                              enable_search = TRUE,
                              non_selected_header = "Choose between:",
                              selected_header = "You have selected:"
-                         )),
+                         ),
+                         width = "110%"),
+
 
                      selectInput(inputId = "genre",
                                  label = "Genre:",
@@ -144,6 +162,8 @@ body <- dashboardBody(width = 50, style = "border-style: solid; border-color: bl
                                       h1('Welcome to The Movie App!'),
                                       br(),
                                       br(),
+                                      br(),
+                                      br(),
                                       h4("Are you a movie passionate and do you go often to the cinema?"),
                                       h4("Then this App was made for you !"),
                                       br(),
@@ -158,19 +178,22 @@ body <- dashboardBody(width = 50, style = "border-style: solid; border-color: bl
                                       br(),
                                       h4("Find out more about the App on this video !"),
                                       br(),
+                                      br(),
+                                      br(),
+                                      br(),
+                                      br(),
                                       tags$iframe(width="800", height="450", src="https://www.youtube.com/embed/T1-k7VYwsHg", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen=NA),
                                       br(),
-                                      uiOutput("img1")
-
+                                      br(),
+                                      br()
                                   )),
+
                           tabItem(tabName = 'sub_4',
                                   fluidPage(
                                       leafletOutput("mymap"),
                                       p(),#to print the map
                                       h2("List of Movies"), # taille du titre
                                       div(dataTableOutput('table'), style = "font-size:125%; font-weight:bold")
-
-
                                   )),
 
                           tabItem(tabName = 'menu_3',

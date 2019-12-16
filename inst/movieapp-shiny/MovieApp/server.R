@@ -127,6 +127,7 @@ server <- function(input, output, session) {
 
 
 
+
     ###### <----- Page 3 Table page 3
     output$full_table <- renderDataTable(filtered_df() %>%
                                              dplyr::select(movie_poster, movie_title, cinema, movie_date, viewing_times, movie_rating) %>%

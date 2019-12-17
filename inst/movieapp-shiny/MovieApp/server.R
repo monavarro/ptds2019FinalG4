@@ -67,6 +67,14 @@ server <- function(input, output, session) {
             chosen_cinema <- allmovies_df
         }
 
+        if(input$date != "All"){
+        chosen_date <- allmovies_df %>%
+            filter(allmovies_df$movie_date == input$date)
+        }
+        else{
+          chosen_date <- allmovies_df
+        }
+
         # Filter location and movies according to the chosen values
         choices_df <- allmovies_df %>%
             filter(movie_title %in% chosen_movie$movie_title,
@@ -75,8 +83,8 @@ server <- function(input, output, session) {
                    hour(as.chron(allmovies_df$viewing_times, "%H:%M")) >= input$availability[1],
                    hour(as.chron(allmovies_df$viewing_times, "%H:%M")) <= input$availability[2],
                    as.numeric(allmovies_df$movie_rating) >= input$ratings[1],
-                   as.numeric(allmovies_df$movie_rating) <= input$ratings[2]
-
+                   as.numeric(allmovies_df$movie_rating) <= input$ratings[2],
+                   movie_date %in% chosen_date$movie_date,
             )
 
         # Genre
@@ -85,10 +93,7 @@ server <- function(input, output, session) {
                 filter(UQ(as.symbol(input$genre)) == 1)
         }
 
-        if(input$date != "All"){
-          choices_df <- choices_df %>%
-            filter(sub("\\/.*", "", allmovies_df$movie_date) == sub("\\/.*", "", input$date))
-        }
+
 
         return(choices_df)
 

@@ -91,7 +91,7 @@ if(genre_scraping){
 if(movie_scraping){
   movieslist <- list()
   movie_dates <- list()
-  dates <- c(lubridate::today()+1, lubridate::today()+2, lubridate::today()+3, lubridate::today()+4, lubridate::today()+5, lubridate::today() + 6)
+  dates <- c(lubridate::today(), lubridate::today()+1, lubridate::today()+2, lubridate::today()+3, lubridate::today()+4, lubridate::today()+5)
   # Construct big dataframe
   for (i in 1:length(urls)){
     movie <- paste0("https://www.cineman.ch", urls[i])%>%
@@ -206,7 +206,7 @@ if(movie_scraping){
 
     if (nrow(movie_rating) == 0) {
       movie_df <- movie_df %>%
-        dplyr::mutate(movie_rating = NA)
+        dplyr::mutate(movie_rating = 0)
     }
 
     #  #MOVIE POSTER
@@ -238,25 +238,29 @@ if(movie_scraping){
 
   #Adding coordinates of cinemas to the data set
 
-  allmovies_df <- dplyr::left_join(allmovies_df,
+  allmovies_df <- dplyr::inner_join(allmovies_df,
                             cinema_coordinates,
                             by = c("cinema", "town"),
                             all = TRUE)
+
 
   #Cleaning movies data set and giving corresponding format
 
   allmovies_df <- allmovies_df[!(allmovies_df$movie_title=="Posted "),]
 
+
   allmovies_df$town <- allmovies_df$town %>%
                               gsub(pattern = "ü", replacement = "u")
-
 
   allmovies_df$town <- replace(as.character(allmovies_df$town),
                                allmovies_df$town == "Gen?ve", "Geneve")
 
   allmovies_df[,4] <- as.character(allmovies_df[,4])
-  allmovies_df[,35] <- as.numeric(allmovies_df[,35])
-  allmovies_df[,36] <- as.character(allmovies_df[,36])
+  allmovies_df$movie_rating <- allmovies_df$movie_rating %>%
+                              as.character() %>%
+                              as.numeric()
+  allmovies_df$movie_rating[is.na(allmovies_df$movie_rating)] <- 0
+  allmovies_df$movie_poster <- as.character(allmovies_df$movie_poster)
   allmovies_df[,5] <- as.Date(allmovies_df[,5], format = "%y/%m/%d") %>%
     format("%d/%m/%y")
 

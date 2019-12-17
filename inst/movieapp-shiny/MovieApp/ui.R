@@ -125,7 +125,11 @@ sidebarMenu(id = "sidebar2",
                      verticalTabPanel(
 
                          sliderInput("availability", label = "Time Preferences(Hours):", #Time range when customer is available
-                                     min = 7, max = 24, step = 1, value=c(7, 24))
+                                     min = min(hour(as.chron(allmovies_df$viewing_times, "%H:%M"))),
+                                     max = max(hour(as.chron(allmovies_df$viewing_times, "%H:%M"))),
+                                     step = 1,
+                                     value=c(min(hour(as.chron(allmovies_df$viewing_times, "%H:%M"))),
+                                             max(hour(as.chron(allmovies_df$viewing_times, "%H:%M")))))
 
                      ),
 

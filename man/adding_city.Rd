@@ -23,7 +23,7 @@ This function updates the plot generated with function
 created base in the reactive results of a shiny app.
 }
 \examples{
-adding_city(mapID,x)
+adding_city(mapID,x)devto
 }
 \author{
 Ines Guardans, Guillaume Lakah, Monica Navarro & Mathieu Schnyder

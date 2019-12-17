@@ -14,14 +14,15 @@
 #' @examples
 #' plot_city(x)
 plot_city <- function(x){
+  y <- unique(x[c("Latitude", "Longitude", "cinema", "Address", "Telephone", "Webpage")])
 leaflet::leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
-  addMarkers(lng = x$Longitude, lat = x$Latitude, popup = paste(paste0("Cinema: ", x$cinema), "<br/>",
-                                                                paste0("Address: ", x$Address), "<br/>",
-                                                                paste0("Telephone: ", x$Telephone), "<br/>",
+  addMarkers(lng = y$Longitude, lat = y$Latitude, popup = paste(paste0("Cinema: ", y$cinema), "<br/>",
+                                                                paste0("Address: ", y$Address), "<br/>",
+                                                                paste0("Telephone: ", y$Telephone), "<br/>",
                                                                 paste0(  "Webpage: ",
-                                                                         "<a href=\"http://", x$Webpage , "\"target=\"_blank\">",
-                                                                         x$Webpage, "</a>")))
+                                                                         "<a href=\"http://", y$Webpage , "\"target=\"_blank\">",
+                                                                         y$Webpage, "</a>")))
 
 
 }
@@ -41,16 +42,16 @@ leaflet::leaflet() %>%
 #' @author Ines Guardans, Guillaume Lakah, Monica Navarro & Mathieu Schnyder
 #' @export
 #' @examples
-#' adding_city(mapID,x)
-
+#' adding_city(mapID,x)devto
 adding_city <- function(mapID, x){
+  z <- unique(x[c("Latitude", "Longitude", "cinema", "Address", "Telephone", "Webpage")])
   leaflet::leafletProxy(mapID) %>%
     clearMarkers() %>%
-    addMarkers(lng = x$Longitude, lat = x$Latitude, popup = paste(paste0("Cinema: ", x$cinema), "<br/>",
-                                                                  paste0("Address: ", x$Address), "<br/>",
-                                                                  paste0("Telephone: ", x$Telephone), "<br/>",
+    addMarkers(lng = z$Longitude, lat = z$Latitude, popup = paste(paste0("Cinema: ", z$cinema), "<br/>",
+                                                                  paste0("Address: ", z$Address), "<br/>",
+                                                                  paste0("Telephone: ", z$Telephone), "<br/>",
                                                                   paste0(  "Webpage: ",
-                                                                           "<a href=\"http://", x$Webpage , "\"target=\"_blank\">",
-                                                                           x$Webpage, "</a>")))
+                                                                           "<a href=\"http://", z$Webpage , "\"target=\"_blank\">",
+                                                                           z$Webpage, "</a>")))
 
 }

@@ -15,13 +15,8 @@ Author: Ines Guardans <ines.guardansgonzalez@unil.ch>
 
 Maintainer: Monica Navarro <monica.navarrocalvo@unil.ch>
 
-Description: This package includes a shiny app that provides information on movies in Switzerland, 
-    with a map presenting all the possible locations, which can be filtered by Movie Name,
-    Town, Movie Genre, Viewing Times and Rating. Functions like 'plot_city', which gives an 
-    initial map of the movies in a shiny app, and 'adding_city', that provides the map given 
-    the new dataset created with the filters chosen are available.
 
-Imports: shiny (>= 1.4.0),
+### Imports: shiny (>= 1.4.0),
     readxl,
     dplyr,
     Hmisc,
@@ -64,7 +59,7 @@ To begin with, it is possible to understand how our project works by looking the
 
 ## Methodology
 We provide a function that allows the user to webscrap all movies currently available on cineman.ch. The movie title, cinemas where it is displayed, viewing times, ratings, poster and genre are obtained from the website and stored into a dataframe.
-Based on the the choices of the user the dataframe is filtered dynamically to show in a map the cinemas where the movies complying with the chosen filters are displayed. In addition, a table with all the options is available under the map.
+Based on the the choices of the user the dataframe is filtered dynamically to show in a map the cinemas where the movies complying with the chosen filters are displayed. In addition, a table with all the options is available under the map. The package includes functions like 'plot_city', which gives an initial map of the movies in a shiny app, and 'adding_city', that provides the map given the new dataset created with the filters chosen are available.
 Finally the whole app was generated thanks to the Shiny package available on R.
 
 ### Main references

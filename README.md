@@ -53,7 +53,7 @@ RoxygenNote: 7.0.2
 ## Introduction
 This github repository has been created as part of the course PROGRAMMING TOOLS IN DATA SCIENCE given by S.Orso and I.Rudnytskyi. Our project reflects the tools that our team has learned in class during the semester. The main goal was to test our skills and put them in practice. 
 This repository is complementary to the package ptds2019FinalG4 that we created and that contains several functions.
-Based on the data available on the internet, one of the main goal of our project was to create an interactive map of the Swiss Cinemas and to allow users to webscrap updated movies around Switzerland over the course of 6 days. 
+Based on the data available on the internet, one of the main goal of our project was to create an interactive map of the Swiss Cinemas and to allow users to webscrap updated movies around Switzerland over the course of 6 days. To see the shiny app you can check the following link https://ptds2019projectgroup4.shinyapps.io/MovieApp/
 
 ## Video Presentation
 To begin with, it is possible to understand how our project works by looking the following video https://www.youtube.com/watch?v=1wb7meCy_7U in which we make a presentation of our project.

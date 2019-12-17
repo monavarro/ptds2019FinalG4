@@ -16,7 +16,8 @@ Author: Ines Guardans <ines.guardansgonzalez@unil.ch>
 Maintainer: Monica Navarro <monica.navarrocalvo@unil.ch>
 
 
-### Imports: shiny (>= 1.4.0),
+### Imports: 
+    shiny (>= 1.4.0),
     readxl,
     dplyr,
     Hmisc,

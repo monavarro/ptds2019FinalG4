@@ -8,7 +8,7 @@ Title: The Movie App
 
 Version: 0.1.0
 
-Author: Ines Guardans <ines.guardans@unil.ch>
+Author: Ines Guardans <ines.guardansgonzalez@unil.ch>
         Guillaume Lakah <guillaume.lakah@unil.ch>
         Monica Navarro <monica.navarrocalvo@unil.ch>
         Mathieu Schnyder <mathieu.schnyder@unil.ch>

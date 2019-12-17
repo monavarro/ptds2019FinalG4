@@ -1,4 +1,4 @@
-# ptds2019FinalG4
+# Final project for Programming Tools in Data Science: Group 4 
 
 Package: ptds2019FinalG4
 
@@ -54,30 +54,20 @@ LazyData: true
 RoxygenNote: 7.0.2
 
 
+## Introduction
+This github repository has been created as part of the course PROGRAMMING TOOLS IN DATA SCIENCE given by S.Orso and I.Rudnytskyi. Our project reflects the tools that our team has learned in class during the semester. The main goal was to test our skills and put them in practice. 
+This repository is complementary to the package ptds2019FinalG4 that we created and that contains several functions.
+Based on the data available on the internet, one of the main goal of our project was to create an interactive map of the Swiss Cinemas and to allow users to webscrap updated movies around Switzerland over the course of 6 days. 
 
+## Video Presentation
+To begin with, it is possible to understand how our project works by looking the following video <a href="https://www.youtube.com/watch?v=1wb7meCy_7U>video</a> in which we make a presentation of our project.
 
+## Methodology
+We provide a function that allows the user to webscrap all movies currently available on cineman.ch. The movie title, cinemas where it is displayed, viewing times, ratings, poster and genre are obtained from the website and stored into a dataframe.
+Based on the the choices of the user the dataframe is filtered dynamically to show in a map the cinemas where the movies complying with the chosen filters are displayed. In addition, a table with all the options is available under the map.
+Finally the whole app was generated thanks to the Shiny package available on R.
 
-
-Luca Bron, David Germano, Patrik Grandadam, Vincent Lomazzi, Edgar Raisin
-
-Introduction
-This github repository has been created as part of the course PROGRAMMING TOOLS IN DATA SCIENCE given by S.Orso and I.Rudnytskyi. More precisely, it consists of our semester project has as main goal to present some tools that we have learned in this class.
-This repository is complementary to the package swissimmo that we created and that contains several functions.
-Based on the data available on the internet, one of the main goal of our project was to create an interactive map of the Swiss real estate market and to allow users to webscrap updated real estate data on Immoscout24.
-
-Video Presentation
-To begin with, it is possible to understand how our project works by looking the following video in which we make a presentation of our project.
-
-Methodology
-Given one or multiple cities of interest, we provide a function that allows the user to webscrap all housings currently available on immoscout24.ch. For given cities, on can retrieve the housings available for renting on this website, their characteristics and addresses.
-Based on the prices observed on the market according to the characteristics of the housings, a prediction model can be built to predict the "real prices" at which the housings are estimated.
-Finally, one can use an interactive ShinyApp to visualize all the housings on a map, filter the data according to some criterion, and even see which housings are over-estimated or under-estimated.
-
-Main references
-We used a lot of available information coming from the internet and our previous knowledge. However, we can underline some sources that have been particularily usefull when doing this project:
-- M. Beckman, S. Guerrier, J. Lee, R. Molinari & S. Orso : An Introduction to Statistical Programming Methods with R https://smac-group.github.io/ds/index.html
-- Immoscout24: https://www.immoscout24.ch/en
-- Wickham, Hadley. 2015. R Packages. O’Reilly. http://r-pkgs.had.co.nz/.
-
-License
-The content of this project itself is licensed under the Creative Commons Attribution 3.0 Unported license
+### Main references
+We used information coming from the internet and our previous knowledge. However, we can underline some sources that have been particularily usefull when doing this project:
+- Cineman: https://www.cineman.ch/en/
+- Leaflet package R: https://rstudio.github.io/leaflet/

@@ -8,10 +8,10 @@ Title: The Movie App
 
 Version: 0.1.0
 
-Author: Ines Guardans <"ines.guardans@unil.ch">
-        Guillaume Lakah <"guillaume.lakah@unil.ch">
-        Monica Navarro <"monica.navarrocalvo@unil.ch">
-        Mathieu Schnyder <"mathieu.schnyder@unil.ch">
+Author: Ines Guardans <ines.guardans@unil.ch>
+        Guillaume Lakah <guillaume.lakah@unil.ch>
+        Monica Navarro <monica.navarrocalvo@unil.ch>
+        Mathieu Schnyder <mathieu.schnyder@unil.ch>
 
 Maintainer: Monica Navarro <monica.navarrocalvo@unil.ch>
 
@@ -60,7 +60,7 @@ This repository is complementary to the package ptds2019FinalG4 that we created 
 Based on the data available on the internet, one of the main goal of our project was to create an interactive map of the Swiss Cinemas and to allow users to webscrap updated movies around Switzerland over the course of 6 days. 
 
 ## Video Presentation
-To begin with, it is possible to understand how our project works by looking the following video <a href="https://www.youtube.com/watch?v=1wb7meCy_7U>video</a> in which we make a presentation of our project.
+To begin with, it is possible to understand how our project works by looking the following video https://www.youtube.com/watch?v=1wb7meCy_7U in which we make a presentation of our project.
 
 ## Methodology
 We provide a function that allows the user to webscrap all movies currently available on cineman.ch. The movie title, cinemas where it is displayed, viewing times, ratings, poster and genre are obtained from the website and stored into a dataframe.
